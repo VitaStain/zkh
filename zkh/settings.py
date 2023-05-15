@@ -190,6 +190,8 @@ SPECTACULAR_SETTINGS = {
     ],
 }
 
+AUTH_USER_MODEL = "accounts.Account"
+
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(
         days=env("ACCESS_TOKEN_LIFETIME_DAYS"),
