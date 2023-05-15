@@ -1,6 +1,8 @@
 from django.urls import include, path
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 
+from apps.accounts.views.registration import AccountProfileCreateView
+
 urlpatterns = [
     path(
         "v1/",
@@ -16,6 +18,7 @@ urlpatterns = [
                     TokenRefreshView.as_view(),
                     name="token_refresh",
                 ),
+            path("registration/", AccountProfileCreateView.as_view(), name="registration"),
             ]
         ),
     ),
