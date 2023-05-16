@@ -18,7 +18,11 @@ urlpatterns = [
                     TokenRefreshView.as_view(),
                     name="token_refresh",
                 ),
-            path("registration/", AccountProfileCreateView.as_view(), name="registration"),
+                path(
+                    "registration/",
+                    AccountProfileCreateView.as_view(),
+                    name="registration",
+                ),
             ]
         ),
     ),
