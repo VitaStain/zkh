@@ -40,6 +40,7 @@ ALLOWED_HOSTS = env("ALLOWED_HOSTS").split()
 PROJECT_APPS = [
     "apps.accounts",
     "apps.services",
+    "apps.workers",
 ]
 
 INSTALLED_LIBS = [

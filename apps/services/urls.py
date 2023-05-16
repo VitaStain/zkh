@@ -12,7 +12,9 @@ urlpatterns = [
         include(
             [
                 path("admin/services/", ServiceCreateView.as_view()),
-                path("admin/services/<int:pk>/", ServiceDetailPatchDeleteView.as_view()),
+                path(
+                    "admin/services/<int:pk>/", ServiceDetailPatchDeleteView.as_view()
+                ),
                 path("services/", ServiceListView.as_view()),
             ]
         ),
