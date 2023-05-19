@@ -1,5 +1,6 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from drf_spectacular.utils import extend_schema_view, extend_schema
-from rest_framework import generics
+from rest_framework import generics, filters
 from rest_framework.permissions import IsAdminUser
 
 from apps.workers.models import Worker
@@ -23,6 +24,14 @@ class WorkerListCreateView(generics.ListCreateAPIView):
     queryset = Worker.objects.all()
     permission_classes = (IsAdminUser,)
     serializer_class = WorkerSerializer
+    filter_backends = [
+        filters.SearchFilter,
+        DjangoFilterBackend,
+        filters.OrderingFilter,
+    ]
+    search_fields = ["id", "name"]
+    ordering_fields = ["id", "name"]
+    filterset_fields = ("service",)
 
 
 @auto_docstring()

@@ -25,7 +25,7 @@ urlpatterns = [
                     name="registration",
                 ),
                 path(
-                    "customers/",
+                    "admin/customers/",
                     CustomerListView.as_view(),
                 ),
             ]

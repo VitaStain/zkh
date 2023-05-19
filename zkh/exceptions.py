@@ -7,3 +7,7 @@ class EmailAlreadyExistsException(ValidationError):
 
 class PasswordsDoNotMatchException(ValidationError):
     default_detail = "Passwords don't match"
+
+
+class ServiceDoesNotExistException(ValidationError):
+    default_detail = "This service dose not exist"

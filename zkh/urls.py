@@ -31,6 +31,7 @@ urlpatterns = [
                 path("", include("apps.accounts.urls")),
                 path("", include("apps.services.urls")),
                 path("", include("apps.workers.urls")),
+                path("", include("apps.orders.urls")),
             ]
         ),
     ),

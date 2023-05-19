@@ -1,8 +1,12 @@
 from django.contrib import admin
 
-from apps.services.models import Service
+from apps.orders.models import Order
 
 
-@admin.register(Service)
-class AdminService(admin.ModelAdmin):
-    list_display = ("title", "price")
+@admin.register(Order)
+class AdminOrder(admin.ModelAdmin):
+    list_display = ("id", "urgency", "time")
+    raw_id_fields = (
+        "customer",
+        "service",
+    )

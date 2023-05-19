@@ -41,6 +41,7 @@ PROJECT_APPS = [
     "apps.accounts",
     "apps.services",
     "apps.workers",
+    "apps.orders",
 ]
 
 INSTALLED_LIBS = [
