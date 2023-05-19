@@ -15,3 +15,7 @@ class ServiceDoesNotExistException(ValidationError):
 
 class OrderDoesNotExistException(ValidationError):
     default_detail = "This order dose not exist"
+
+
+class WorkerDoesNotExistException(ValidationError):
+    default_detail = "This worker dose not exist"

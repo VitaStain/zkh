@@ -8,6 +8,7 @@ from apps.orders.serializers.order import (
     OrderCreateSerializer,
     OrderListSerializer,
     OrderDetailSerializer,
+    OrderUpdateSerializer,
 )
 from zkh.docs import auto_docstring
 
@@ -66,3 +67,18 @@ class OrderDetailView(generics.RetrieveAPIView):
             obj.status = OrderStatus.VIEWED
             obj.save()
         return obj
+
+
+@extend_schema(
+    tags=["orders"],
+)
+@extend_schema_view(
+    patch=extend_schema(
+        summary="Добавить мастера к заказу (для администратора)",
+    ),
+)
+class OrderUpdateView(generics.UpdateAPIView):
+    queryset = Order.objects.all()
+    permission_classes = (IsAdminUser,)
+    serializer_class = OrderUpdateSerializer
+    http_method_names = ["patch"]
