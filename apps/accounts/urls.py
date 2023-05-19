@@ -1,6 +1,7 @@
 from django.urls import include, path
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 
+from apps.accounts.views.customer import CustomerListView
 from apps.accounts.views.registration import AccountProfileCreateView
 
 urlpatterns = [
@@ -22,6 +23,10 @@ urlpatterns = [
                     "registration/",
                     AccountProfileCreateView.as_view(),
                     name="registration",
+                ),
+                path(
+                    "customers/",
+                    CustomerListView.as_view(),
                 ),
             ]
         ),
