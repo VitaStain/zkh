@@ -29,7 +29,7 @@ class Order(models.Model):
     worker = models.ForeignKey(
         Worker,
         on_delete=models.CASCADE,
-        related_name="worker",
+        related_name="order",
         null=True,
         blank=True,
         default="",

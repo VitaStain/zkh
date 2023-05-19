@@ -11,3 +11,7 @@ class PasswordsDoNotMatchException(ValidationError):
 
 class ServiceDoesNotExistException(ValidationError):
     default_detail = "This service dose not exist"
+
+
+class OrderDoesNotExistException(ValidationError):
+    default_detail = "This order dose not exist"
