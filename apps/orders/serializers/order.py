@@ -1,7 +1,9 @@
 from rest_framework import serializers
 
+from apps.accounts.serializers.customer import CustomerListSerializer
 from apps.orders.models import Order
 from apps.services.models import Service
+from apps.services.serializers.service import ServiceSerializer
 from zkh.exceptions import ServiceDoesNotExistException
 
 
@@ -26,3 +28,18 @@ class OrderCreateSerializer(serializers.ModelSerializer):
             customer=customer, service_id=service_id, urgency=urgency, time=time
         )
         return order
+
+
+class OrderListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ("id", "customer", "service", "urgency", "time", "status")
+
+
+class OrderDetailSerializer(serializers.ModelSerializer):
+    service = ServiceSerializer()
+    customer = CustomerListSerializer()
+
+    class Meta:
+        model = Order
+        fields = ("id", "customer", "service", "urgency", "time", "status")
